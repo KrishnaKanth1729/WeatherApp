@@ -9,6 +9,7 @@ import 'package:myweather/widgets/Weather.dart';
 import 'package:myweather/widgets/WeatherItem.dart';
 import 'package:myweather/models/WeatherData.dart';
 import 'package:myweather/models/ForecastData.dart';
+import 'package:myweather/widgets/Insights.dart';
 
 void main() => runApp(new MyApp());
 
@@ -48,11 +49,7 @@ class MyAppState extends State<MyApp> {
           body: Center(
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               Text("See your insights"),
-              IconButton(
-                  icon: Icon(Icons.receipt_long_rounded),
-                  tooltip: "See Insights",
-                  splashColor: Colors.redAccent,
-                  onPressed: () => {},),
+              MyButton(),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +69,7 @@ class MyAppState extends State<MyApp> {
                                 new AlwaysStoppedAnimation(Colors.black87),
                           )
                         : IconButton(
-                            icon: new Icon(Icons.refresh),
+                            icon: new Icon(Icons.refresh_outlined),
                             tooltip: 'Refresh',
                             onPressed: loadWeather,
                             color: Colors.white,
@@ -148,13 +145,29 @@ class MyAppState extends State<MyApp> {
   }
 }
 
-class SecondScreen extends StatelessWidget {
+class MyButton extends StatefulWidget {
+  @override
+  _MyButtonState createState() => _MyButtonState();
+}
+
+class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Second SCreen"),
-      ),
-    );
+    return IconButton(icon: Icon(Icons.insights_rounded), onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
+    });
   }
 }
+
+class InsightsPage extends StatefulWidget {
+  @override
+  _InsightsPageState createState() => _InsightsPageState();
+}
+
+class _InsightsPageState extends State<InsightsPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
