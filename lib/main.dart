@@ -40,6 +40,7 @@ class MyAppState extends State<MyApp> {
 
     loadWeather();
   }
+
   // defining user interface with data
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,9 @@ class MyAppState extends State<MyApp> {
       home: Scaffold(
           backgroundColor: Colors.greenAccent,
           appBar: AppBar(
-            title: Text('Flutter Weather App'),
+            backgroundColor: Colors.cyanAccent,
+            title: Text('Insights Based Weather App for farmers',
+                style: TextStyle(color: Colors.black, fontSize: 20)),
           ),
           body: Center(
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
@@ -64,7 +67,8 @@ class MyAppState extends State<MyApp> {
                   Padding(
                     padding: const EdgeInsets.all(8.0), // adding padding
                     child: weatherData != null
-                        ? Weather(weather: weatherData) // displaying weather data
+                        ? Weather(
+                            weather: weatherData) // displaying weather data
                         : Container(),
                   ),
                   Padding(
@@ -75,7 +79,8 @@ class MyAppState extends State<MyApp> {
                             valueColor:
                                 new AlwaysStoppedAnimation(Colors.black87),
                           )
-                        : IconButton(  //refresh button to load new set of data
+                        : IconButton(
+                            //refresh button to load new set of data
                             icon: new Icon(Icons.refresh_outlined),
                             tooltip: 'Refresh',
                             onPressed: loadWeather,
@@ -85,7 +90,8 @@ class MyAppState extends State<MyApp> {
                 ],
               ),
             ),
-            SafeArea( // defining user interface
+            SafeArea(
+              // defining user interface
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -111,10 +117,12 @@ class MyAppState extends State<MyApp> {
 
     LocationData ld;
     try {
-      ld = await _location.getLocation(); // getting precise location with lat and lon coordinates using gps
+      ld = await _location
+          .getLocation(); // getting precise location with lat and lon coordinates using gps
 
       error = null;
-    } on PlatformException catch (e) { // checking for location permission in device and raising an exception if it isn't enabled
+    } on PlatformException catch (e) {
+      // checking for location permission in device and raising an exception if it isn't enabled
       if (e.code == 'PERMISSION_DENIED') {
         error = 'Permission denied';
       } else if (e.code == 'PERMISSION_DENIED_NEVER_ASK') {
@@ -129,31 +137,36 @@ class MyAppState extends State<MyApp> {
       final lat = ld.latitude;
       final lon = ld.longitude;
 
-      final weatherResponse = await http.get( // calling api requests for weatherData
+      final weatherResponse = await http.get(
+          // calling api requests for weatherData
           'https://api.openweathermap.org/data/2.5/weather?APPID=1609afe50eaf590cb58d3c1fbfb37f2a&lat=${lat.toString()}&lon=${lon.toString()}&units=metric');
-      final forecastResponse = await http.get( //calling api requests for forecastData
+      final forecastResponse = await http.get(
+          //calling api requests for forecastData
           'https://api.openweathermap.org/data/2.5/forecast?APPID=1609afe50eaf590cb58d3c1fbfb37f2a&lat=${lat.toString()}&lon=${lon.toString()}&units=metric');
 
-      if (weatherResponse.statusCode == 200 && // checking if api call is success and passing data to program(200 is success and 404 is error)
+      if (weatherResponse.statusCode ==
+              200 && // checking if api call is success and passing data to program(200 is success and 404 is error)
           forecastResponse.statusCode == 200) {
         return setState(() {
-          weatherData =
-              new WeatherData.fromJson(jsonDecode(weatherResponse.body)); // taking the body of json api response and decoding to -utf8' for weatherData
-          forecastData =
-              new ForecastData.fromJson(jsonDecode(forecastResponse.body)); // taking the body of json api response and decoding to -utf8' for forecastData
+          weatherData = new WeatherData.fromJson(jsonDecode(weatherResponse
+              .body)); // taking the body of json api response and decoding to -utf8' for weatherData
+          forecastData = new ForecastData.fromJson(jsonDecode(forecastResponse
+              .body)); // taking the body of json api response and decoding to -utf8' for forecastData
           isLoading = false;
         });
       }
     }
 
-    setState(() {  // checking for changes and stop loading the data
+    setState(() {
+      // checking for changes and stop loading the data
       isLoading = false;
     });
   }
 }
 
 // the button that passes data to the insights page from the main page
-class MyButton extends StatefulWidget { // the button that passes weatherData to the insights page
+class MyButton extends StatefulWidget {
+  // the button that passes weatherData to the insights page
   WeatherData weatherData;
   MyButton(@required this.weatherData);
 
@@ -164,14 +177,16 @@ class MyButton extends StatefulWidget { // the button that passes weatherData to
 class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
-    return IconButton( // creating the UI icon
+    return IconButton(
+        // creating the UI icon
         icon: Icon(Icons.insights_rounded),
         onPressed: () {
           Navigator.push(
               context,
-              MaterialPageRoute( // passing the route when it is pressed
-                  builder: (context) => SecondScreen(widget.weatherData))); //passing the weatherData in he button so that the nsights page can access it
-
+              MaterialPageRoute(
+                  // passing the route when it is pressed
+                  builder: (context) => SecondScreen(widget
+                      .weatherData))); //passing the weatherData in he button so that the nsights page can access it
         });
   }
 }

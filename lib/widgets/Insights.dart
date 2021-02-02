@@ -42,26 +42,32 @@ class SecondScreen extends StatelessWidget {
           'आप अपनी फसलों को सामान्य रूप से पानी दे सकते हैं क्योंकि बारिश नहीं होती है';
     }
     return Scaffold(
-        appBar: AppBar(
-            title: Text("Your insights"), backgroundColor: Colors.cyanAccent),
-        body: Column(
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.insights),
-            ),
-            Text(maintext,
-                style: new TextStyle(color: Colors.black, fontSize: 35)),
-            Text(anothertext,
-                style: new TextStyle(color: Colors.cyan, fontSize: 35)),
-            Text(text,
-                style: new TextStyle(
-                    color: Colors.lightGreenAccent, fontSize: 35)),
-            Text(
-              kannada,
-              style: new TextStyle(color: Colors.deepOrange, fontSize: 35),
-            )
-          ],
-        ));
+      appBar: AppBar(
+          title: Text("Your insights"), backgroundColor: Colors.cyanAccent),
+      body: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(
+              8.0), // adding padding on sides of the widgets
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(anothertext,
+                  style: new TextStyle(color: Colors.black, fontSize: 24)),
+              Text('', style: new TextStyle(color: Colors.black, fontSize: 24)),
+              Text(text,
+                  style: new TextStyle(color: Colors.black, fontSize: 24)),
+              Text('', style: new TextStyle(color: Colors.black)),
+              Text(maintext,
+                  style: new TextStyle(color: Colors.black, fontSize: 24.0)),
+              Text('', style: new TextStyle(color: Colors.black)),
+              Text(kannada,
+                  style: new TextStyle(color: Colors.black, fontSize: 24)),
+              Text('', style: new TextStyle(color: Colors.black)),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
