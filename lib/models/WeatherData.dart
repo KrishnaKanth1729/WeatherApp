@@ -1,3 +1,6 @@
+// flutter app done by rkrishnakanth for science quest
+
+// tells the format in which the data from the api should be retrieved
 class WeatherData {
   DateTime date = DateTime.now();
   String name = '';

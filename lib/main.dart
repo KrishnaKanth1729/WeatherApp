@@ -1,5 +1,6 @@
 // flutter farmer insights app done by rkrishnakanth for science quest
 
+// importing libraries and classes
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,6 +14,7 @@ import 'package:myweather/models/WeatherData.dart';
 import 'package:myweather/models/ForecastData.dart';
 import 'package:myweather/widgets/Insights.dart';
 
+// the main loop
 void main() => runApp(new MyApp());
 
 class MyApp extends StatefulWidget {
@@ -147,6 +149,7 @@ class MyAppState extends State<MyApp> {
   }
 }
 
+// the button that passes data to the insights page from the main page
 class MyButton extends StatefulWidget {
   WeatherData weatherData;
   MyButton(@required this.weatherData);
@@ -169,14 +172,3 @@ class _MyButtonState extends State<MyButton> {
   }
 }
 
-class InsightsPage extends StatefulWidget {
-  @override
-  _InsightsPageState createState() => _InsightsPageState();
-}
-
-class _InsightsPageState extends State<InsightsPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}

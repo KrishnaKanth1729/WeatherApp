@@ -1,5 +1,8 @@
+//flutter app done by rkrishnakanth for science quest
+
 import 'package:myweather/models/WeatherData.dart';
 
+//defines the structure in which the data should be retrieved for forecast
 class ForecastData {
   final List list;
 
