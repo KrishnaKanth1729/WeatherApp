@@ -8,11 +8,8 @@ This app is made using flutter, an app development framework, by google, develop
 the main code can be found in the lib folder. There are a lot of comments beside each element for easy understanding.
 
 ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
+- flutter: https://flutter.dev
+! ! This works on both android and ios devices(native app).
 ```
 
 ### Acknowledgements
