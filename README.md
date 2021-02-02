@@ -8,8 +8,8 @@ This app is made using flutter, an app development framework, by google, develop
 the main code can be found in the lib folder. There are a lot of comments beside each element for easy understanding.
 
 ```diff
-- flutter: https://flutter.dev
-! ! This works on both android and ios devices(native app).
+-flutter: https://flutter.dev
+!This works on both android and ios devices(native app).
 ```
 
 ![flutterapp](https://cms-assets.tutsplus.com/uploads/users/362/posts/31624/preview_image/flutter1.jpg?raw=true "Title")
