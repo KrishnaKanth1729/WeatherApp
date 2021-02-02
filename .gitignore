@@ -52,10 +52,7 @@ app.*.map.json
 .idea
 .ios
 build
-.flutter-plugins
-.flutter-plugins-dependencies
 .metadata
-.packages
 myweather.iml
 myweather_android.iml
 

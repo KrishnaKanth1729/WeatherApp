@@ -6,5 +6,5 @@ A weather based insights app based on providing meteorological insights for farm
 
 This app is made using flutter, an app development framework, by google, develop for the dart programming language(also developed by google)
 
-# Acknowledgements
+### Acknowledgements
 R KRISHNA KANTH, Science Quest
