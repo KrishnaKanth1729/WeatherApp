@@ -1,3 +1,5 @@
+// flutter farmer insights app done by rkrishnakanth for science quest
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -48,8 +50,8 @@ class MyAppState extends State<MyApp> {
           ),
           body: Center(
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-              Text("See your insights"),
-              MyButton(),
+            Text("See your insights"),
+            MyButton(weatherData),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -146,6 +148,9 @@ class MyAppState extends State<MyApp> {
 }
 
 class MyButton extends StatefulWidget {
+  WeatherData weatherData;
+  MyButton(@required this.weatherData);
+
   @override
   _MyButtonState createState() => _MyButtonState();
 }
@@ -153,9 +158,14 @@ class MyButton extends StatefulWidget {
 class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
-    return IconButton(icon: Icon(Icons.insights_rounded), onPressed: () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
-    });
+    return IconButton(
+        icon: Icon(Icons.insights_rounded),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => SecondScreen(widget.weatherData)));
+        });
   }
 }
 
@@ -170,4 +180,3 @@ class _InsightsPageState extends State<InsightsPage> {
     return Container();
   }
 }
-
