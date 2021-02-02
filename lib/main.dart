@@ -1,3 +1,5 @@
+// are comments for explanation
+
 // flutter farmer insights app done by rkrishnakanth for science quest
 
 // importing libraries and classes
@@ -25,6 +27,7 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  // data variables
   bool isLoading = false;
   WeatherData weatherData;
   ForecastData forecastData;
@@ -37,11 +40,11 @@ class MyAppState extends State<MyApp> {
 
     loadWeather();
   }
-
+  // defining user interface with data
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Weather App',
+      title: 'Insights Based Weather App for farmers',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -53,15 +56,15 @@ class MyAppState extends State<MyApp> {
           body: Center(
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
             Text("See your insights"),
-            MyButton(weatherData),
+            MyButton(weatherData), // the button for insights page
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0), // adding padding
                     child: weatherData != null
-                        ? Weather(weather: weatherData)
+                        ? Weather(weather: weatherData) // displaying weather data
                         : Container(),
                   ),
                   Padding(
@@ -72,7 +75,7 @@ class MyAppState extends State<MyApp> {
                             valueColor:
                                 new AlwaysStoppedAnimation(Colors.black87),
                           )
-                        : IconButton(
+                        : IconButton(  //refresh button to load new set of data
                             icon: new Icon(Icons.refresh_outlined),
                             tooltip: 'Refresh',
                             onPressed: loadWeather,
@@ -82,7 +85,7 @@ class MyAppState extends State<MyApp> {
                 ],
               ),
             ),
-            SafeArea(
+            SafeArea( // defining user interface
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -108,10 +111,10 @@ class MyAppState extends State<MyApp> {
 
     LocationData ld;
     try {
-      ld = await _location.getLocation();
+      ld = await _location.getLocation(); // getting precise location with lat and lon coordinates using gps
 
       error = null;
-    } on PlatformException catch (e) {
+    } on PlatformException catch (e) { // checking for location permission in device and raising an exception if it isn't enabled
       if (e.code == 'PERMISSION_DENIED') {
         error = 'Permission denied';
       } else if (e.code == 'PERMISSION_DENIED_NEVER_ASK') {
@@ -126,31 +129,31 @@ class MyAppState extends State<MyApp> {
       final lat = ld.latitude;
       final lon = ld.longitude;
 
-      final weatherResponse = await http.get(
+      final weatherResponse = await http.get( // calling api requests for weatherData
           'https://api.openweathermap.org/data/2.5/weather?APPID=1609afe50eaf590cb58d3c1fbfb37f2a&lat=${lat.toString()}&lon=${lon.toString()}&units=metric');
-      final forecastResponse = await http.get(
+      final forecastResponse = await http.get( //calling api requests for forecastData
           'https://api.openweathermap.org/data/2.5/forecast?APPID=1609afe50eaf590cb58d3c1fbfb37f2a&lat=${lat.toString()}&lon=${lon.toString()}&units=metric');
 
-      if (weatherResponse.statusCode == 200 &&
+      if (weatherResponse.statusCode == 200 && // checking if api call is success and passing data to program(200 is success and 404 is error)
           forecastResponse.statusCode == 200) {
         return setState(() {
           weatherData =
-              new WeatherData.fromJson(jsonDecode(weatherResponse.body));
+              new WeatherData.fromJson(jsonDecode(weatherResponse.body)); // taking the body of json api response and decoding to -utf8' for weatherData
           forecastData =
-              new ForecastData.fromJson(jsonDecode(forecastResponse.body));
+              new ForecastData.fromJson(jsonDecode(forecastResponse.body)); // taking the body of json api response and decoding to -utf8' for forecastData
           isLoading = false;
         });
       }
     }
 
-    setState(() {
+    setState(() {  // checking for changes and stop loading the data
       isLoading = false;
     });
   }
 }
 
 // the button that passes data to the insights page from the main page
-class MyButton extends StatefulWidget {
+class MyButton extends StatefulWidget { // the button that passes weatherData to the insights page
   WeatherData weatherData;
   MyButton(@required this.weatherData);
 
@@ -161,14 +164,14 @@ class MyButton extends StatefulWidget {
 class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return IconButton( // creating the UI icon
         icon: Icon(Icons.insights_rounded),
         onPressed: () {
           Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => SecondScreen(widget.weatherData)));
+              MaterialPageRoute( // passing the route when it is pressed
+                  builder: (context) => SecondScreen(widget.weatherData))); //passing the weatherData in he button so that the nsights page can access it
+
         });
   }
 }
-

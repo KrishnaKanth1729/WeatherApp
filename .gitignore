@@ -52,7 +52,6 @@ app.*.map.json
 .idea
 .ios
 build
-.metadata
 myweather.iml
 myweather_android.iml
 

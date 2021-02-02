@@ -1,15 +1,17 @@
 // flutter app by rkrishnakanth for science quest
 
+// importing dependencies and classes
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 
 import 'package:myweather/models/WeatherData.dart';
 
+// defines how the data collected should be displayed on the UI (user interface)
 class Weather extends StatelessWidget {
   final WeatherData weather;
 
-  Weather({Key key, @required this.weather}) : super(key: key);
+  Weather({Key key, @required this.weather}) : super(key: key); // required parameters for calling class Weather
   @override
   Widget build(BuildContext context) {
     return Column(
