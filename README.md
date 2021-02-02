@@ -1,11 +1,8 @@
 # myweather
 
-A new flutter module project.
+A weather based insights app based on providing meteorological insights for farmers
+R KRISHNA KANTH, Science Quest
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.dev/).
-
-For instructions integrating Flutter modules to your existing applications,
-see the [add-to-app documentation](https://flutter.dev/docs/development/add-to-app).
+This app is made using flutter, an app development framework, by google, develop for the dart programming language(also developed by google)

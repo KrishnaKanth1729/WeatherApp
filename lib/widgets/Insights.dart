@@ -1,5 +1,3 @@
-// flutter app by rkrishnakanth for science quest
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -51,22 +49,17 @@ class SecondScreen extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.insights),
             ),
-            ListView(
-              padding: EdgeInsets.all(8),
-              children: <Widget>[
-                Text(maintext,
-                    style: new TextStyle(color: Colors.black, fontSize: 35)),
-                Text(anothertext,
-                    style: new TextStyle(color: Colors.cyan, fontSize: 35)),
-                Text(text,
-                    style: new TextStyle(
-                        color: Colors.lightGreenAccent, fontSize: 35)),
-                Text(
-                  kannada,
-                  style: new TextStyle(color: Colors.deepOrange, fontSize: 35),
-                )
-              ],
-            ),
+            Text(maintext,
+                style: new TextStyle(color: Colors.black, fontSize: 35)),
+            Text(anothertext,
+                style: new TextStyle(color: Colors.cyan, fontSize: 35)),
+            Text(text,
+                style: new TextStyle(
+                    color: Colors.lightGreenAccent, fontSize: 35)),
+            Text(
+              kannada,
+              style: new TextStyle(color: Colors.deepOrange, fontSize: 35),
+            )
           ],
         ));
   }

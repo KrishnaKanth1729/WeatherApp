@@ -46,3 +46,16 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+.android
+.dart_tool
+.idea
+.ios
+build
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+.packages
+myweather.iml
+myweather_android.iml
+
