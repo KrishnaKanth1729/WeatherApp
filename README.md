@@ -12,7 +12,7 @@ the main code can be found in the lib folder. There are a lot of comments beside
 ! ! This works on both android and ios devices(native app).
 ```
 
-![flutterapp](https://yt3.ggpht.com/a/AGF-l7-pLWHhqjLR5ZVoKzV9_eU6IjYrDyhvSLRjsw=s900-mo-c-c0xffffffff-rj-k-no?raw=true "Title")
+![flutterapp](https://cms-assets.tutsplus.com/uploads/users/362/posts/31624/preview_image/flutter1.jpg?raw=true "Title")
 
 ### Acknowledgements
 R KRISHNA KANTH, Science Quest
