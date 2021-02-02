@@ -12,5 +12,7 @@ the main code can be found in the lib folder. There are a lot of comments beside
 ! ! This works on both android and ios devices(native app).
 ```
 
+![flutterapp](https://www.andreasnesheim.no/wp-content/uploads/2019/05/logo_flutter_1080px_clr.png?raw=true "Title")
+
 ### Acknowledgements
 R KRISHNA KANTH, Science Quest
