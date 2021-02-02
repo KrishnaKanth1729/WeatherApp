@@ -45,7 +45,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Insights Based Weather App for farmers',
+      title: 'Farmer\'s weather',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -53,7 +53,7 @@ class MyAppState extends State<MyApp> {
           backgroundColor: Colors.greenAccent,
           appBar: AppBar(
             backgroundColor: Colors.cyanAccent,
-            title: Text('Insights Based Weather App for farmers',
+            title: Text('Farmer\'s Weather',
                 style: TextStyle(color: Colors.black, fontSize: 20)),
           ),
           body: Center(

@@ -43,7 +43,16 @@ class SecondScreen extends StatelessWidget {
     }
     return Scaffold(
       appBar: AppBar(
-          title: Text("Your insights"), backgroundColor: Colors.cyanAccent),
+        title: Text(
+          "Your insights",
+          style: TextStyle(
+            color: Colors.limeAccent,
+            decorationColor: Colors.blue,
+          ),
+        ),
+        backgroundColor: Colors.cyanAccent,
+        shadowColor: Colors.amberAccent,
+      ),
       body: Card(
         child: Padding(
           padding: const EdgeInsets.all(
@@ -52,16 +61,16 @@ class SecondScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(anothertext,
-                  style: new TextStyle(color: Colors.black, fontSize: 24)),
+                  style: new TextStyle(color: Colors.cyan, fontSize: 24)),
               Text('', style: new TextStyle(color: Colors.black, fontSize: 24)),
               Text(text,
-                  style: new TextStyle(color: Colors.black, fontSize: 24)),
+                  style:
+                      new TextStyle(color: Colors.yellowAccent, fontSize: 24)),
               Text('', style: new TextStyle(color: Colors.black)),
-              Text(maintext,
-                  style: new TextStyle(color: Colors.black, fontSize: 24.0)),
               Text('', style: new TextStyle(color: Colors.black)),
               Text(kannada,
-                  style: new TextStyle(color: Colors.black, fontSize: 24)),
+                  style: new TextStyle(
+                      color: Colors.lightGreenAccent, fontSize: 24)),
               Text('', style: new TextStyle(color: Colors.black)),
             ],
           ),
