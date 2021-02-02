@@ -13,6 +13,8 @@ the main code can be found in the lib folder. There are a lot of comments beside
 ```
 
 ![flutterapp](https://cms-assets.tutsplus.com/uploads/users/362/posts/31624/preview_image/flutter1.jpg?raw=true "Title")
+![flutterapp](Screenshot_20210202-141242.jpg?raw=true "Title")
+
 
 ### Acknowledgements
 R KRISHNA KANTH, Science Quest
